@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Georgia', 'Times New Roman', 'serif';
+  --font-sans: 'Arial', 'Helvetica', 'sans-serif'; 
+  --font-mono: 'Courier New', 'Consolas', 'monospace';
+  --color-first: #8B5E3C;
+  --color-second: #6F4F29;
+  --color-third: #D2B29A;
+}
+
+
+.home-page-container {
+  @apply min-h-screen flex flex-col items-center justify-center bg-[url('src/assets/background1.png')] bg-cover bg-no-repeat text-[var(--color-secondary)] font-serif;
+}
+
+.button-container {
+  @apply flex gap-5;
+}
+
+.btn-play-computer,
+.btn-play-friend {
+  @apply px-8 py-4 text-lg rounded-lg bg-[var(--color-tertiary)] text-[var(--color-secondary)] shadow-md hover:translate-y-[-3px] hover:shadow-lg active:translate-y-[1px] active:shadow-sm;
+}
+
+.details-popup-container {
+  @apply h-[40vh] w-[50%] p-3 m-3.5 bg-[var(--color-primary)] rounded-2xl flex justify-center items-center flex-col opacity-80;
+}
+
+.details-popup-close-button {
+  @apply self-end text-xl text-[var(--color-light)] cursor-pointer;
+}
+
+.details-popup-form {
+  @apply w-full flex flex-col items-center;
+}
+
+.details-popup-submit-button {
+  @apply px-4 py-2 mt-4 rounded-lg bg-[var(--color-accent)] text-[var(--color-light)] hover:bg-[var(--color-accent)]/80;
+}
+
+.names-form-container,
+.game-time-container {
+  @apply w-full flex flex-col items-center mb-4;
+}
+
+.names-form-label,
+.game-time-label {
+  @apply text-[var(--color-light)] mr-2;
+}
+
+.names-form-input,
+.game-time-select,
+.game-time-input {
+  @apply px-3 py-2 rounded-md bg-[var(--color-tertiary)] text-[var(--color-secondary)] border border-[var(--color-dark)];
+}
