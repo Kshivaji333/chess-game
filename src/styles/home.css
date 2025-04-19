@@ -16,25 +16,30 @@
 }
 
 .home-page-container {
-  @apply min-h-screen flex flex-col items-center justify-center bg-[url('src/assets/background.png')] bg-cover bg-no-repeat text-[var(--color-text)] font-serif;
+  @apply min-h-screen flex flex-col items-center justify-center bg-[url('src/assets/background4.png')] bg-cover bg-no-repeat bg-center bg-fixed text-[var(--color-text)] font-serif relative;
+}
+
+.home-page-container::before {
+  content: "";
+  @apply absolute inset-0 bg-black/30 z-0;
 }
 
 .button-container {
-  @apply flex gap-5;
+  @apply flex flex-col gap-8 items-center p-8 rounded-2xl border-4 border-[var(--color-dark-wood)] bg-[var(--color-highlight)] shadow-2xl relative z-10;
 }
 
 .btn-play-computer,
 .btn-play-friend {
-  @apply px-8 py-4 text-lg rounded-lg bg-[var(--color-accent)] text-[var(--color-text)] shadow-md hover:translate-y-[-3px] hover:shadow-lg active:translate-y-[1px] active:shadow-sm;
+  @apply w-64 px-8 py-6 text-xl rounded-xl bg-[var(--color-accent)] text-[var(--color-text)] shadow-lg hover:translate-y-[-3px] hover:shadow-xl active:translate-y-[1px] active:shadow-md transition-all duration-300 border-2 border-[var(--color-dark-wood)] font-bold;
 }
 
 /* Redesigned Popup Styles */
 .details-popup-container {
-  @apply fixed inset-0 flex items-center justify-center bg-black/50;
+  @apply fixed inset-0 flex items-center justify-center bg-black/50 z-50;
 }
 
 .details-popup-content {
-  @apply w-[90%] max-w-lg bg-[var(--color-light-wood)] rounded-lg shadow-lg p-6 border-4 border-[var(--color-dark-wood)];
+  @apply w-[90%] max-w-lg bg-[var(--color-light-wood)] rounded-lg shadow-lg p-6 border-4 border-[var(--color-dark-wood)] z-50;
   animation: slideIn 0.4s ease-out;
   box-shadow: 0 4px 6px -1px var(--color-shadow),
     0 2px 4px -1px var(--color-shadow);
