@@ -25,16 +25,21 @@ const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
 
   return (
     <div className="details-popup-container">
-      <button className="details-popup-close-button" onClick={() => setDetailsPopUp(false)}>
-        x
-      </button>
-      <form className="details-popup-form" onSubmit={handleSubmit}>
-        <NamesForm />
-        <GameTime setTypeOfTime={setTypeOfTime} custumTime={custumTime} />
-        <button className="details-popup-submit-button" type="submit">
-          Submit
-        </button>
-      </form>
+      <div className="details-popup-content">
+        <div className="details-popup-header">
+          <h2 className="details-popup-title">Game Details</h2>
+          <button className="details-popup-close-button" onClick={() => setDetailsPopUp(false)}>
+            ×
+          </button>
+        </div>
+        <form className="details-popup-form" onSubmit={handleSubmit}>
+          <NamesForm />
+          <GameTime setTypeOfTime={setTypeOfTime} custumTime={custumTime} />
+          <button className="details-popup-submit-button" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

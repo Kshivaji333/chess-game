@@ -1,21 +1,23 @@
-@import "tailwindcss"
-  @theme {
-    --font-serif: 'Georgia', 'Times New Roman', 'serif';
-    --font-sans: 'Arial', 'Helvetica', 'sans-serif';
-    --font-mono: 'Courier New', 'Consolas', 'monospace';
+@import "tailwindcss" @theme {
+  --font-serif: "Georgia", "Times New Roman", "serif";
+  --font-sans: "Arial", "Helvetica", "sans-serif";
+  --font-mono: "Courier New", "Consolas", "monospace";
 
-    --color-primary: #8B5E3C;
-    --color-secondary: #6F4F29;
-    --color-tertiary: #D2B29A;
-    --color-accent: #A06D4E;
-    --color-light: #F5F5DC;
-    --color-dark: #332922;
-    --color-white: #FFFFFF;
-    --color-black: #000000;
-    --color-gray-500: #6B7280;
-  }
-
-
+  --color-primary: #8b5e3c;
+  --color-secondary: #6f4f29;
+  --color-tertiary: #d2b29a;
+  --color-accent: #a06d4e;
+  --color-light: #f5f5dc;
+  --color-dark: #332922;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-500: #6b7280;
+  --color-dark-wood: #8b5a2b;
+  --color-light-wood: #deb887;
+  --color-accent: #d2b48c;
+  --color-highlight: #f5deb3;
+  --color-text: #3e2723;
+}
 
 .box-container {
   @apply border border-[var(--color-gray-500)] flex items-center justify-center;
@@ -25,6 +27,34 @@
   @apply text-[var(--color-secondary)];
 }
 
+.game-container {
+  @apply min-h-screen flex flex-col items-center justify-center bg-[url('src/assets/background4.png')] bg-cover bg-no-repeat text-[var(--color-text)] font-serif;
+}
 
+.chess-board {
+  @apply grid grid-cols-8 gap-0 border-4 border-[var(--color-dark-wood)] shadow-lg;
+}
 
-.
+.chess-square {
+  @apply w-16 h-16 flex items-center justify-center;
+}
+
+.chess-square.light {
+  @apply bg-[var(--color-light-wood)];
+}
+
+.chess-square.dark {
+  @apply bg-[var(--color-dark-wood)];
+}
+
+.chess-piece {
+  @apply text-2xl text-[var(--color-text)];
+}
+
+.game-controls {
+  @apply mt-4 flex gap-4;
+}
+
+.control-button {
+  @apply px-4 py-2 rounded-lg bg-[var(--color-accent)] text-[var(--color-text)] hover:bg-[var(--color-accent)]/80;
+}

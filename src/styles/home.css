@@ -1,17 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: 'Georgia', 'Times New Roman', 'serif';
-  --font-sans: 'Arial', 'Helvetica', 'sans-serif'; 
-  --font-mono: 'Courier New', 'Consolas', 'monospace';
-  --color-first: #8B5E3C;
-  --color-second: #6F4F29;
-  --color-third: #D2B29A;
+  --font-serif: "Times New Roman", "serif";
+  --font-sans: "Arial", "sans-serif";
+  --color-dark-wood: #5a3825;
+  --color-light-wood: #e0c097;
+  --color-accent: #b08968;
+  --color-highlight: #f4e1d2;
+  --color-text: #3e2723;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-input-bg: #f4e1d2;
+  --color-input-border: #b08968;
+  --color-input-focus: #a67c52;
+  --color-input-text: #3e2723;
 }
 
-
 .home-page-container {
-  @apply min-h-screen flex flex-col items-center justify-center bg-[url('src/assets/background1.png')] bg-cover bg-no-repeat text-[var(--color-secondary)] font-serif;
+  @apply min-h-screen flex flex-col items-center justify-center bg-[url('src/assets/background.png')] bg-cover bg-no-repeat text-[var(--color-text)] font-serif;
 }
 
 .button-container {
@@ -20,37 +25,117 @@
 
 .btn-play-computer,
 .btn-play-friend {
-  @apply px-8 py-4 text-lg rounded-lg bg-[var(--color-tertiary)] text-[var(--color-secondary)] shadow-md hover:translate-y-[-3px] hover:shadow-lg active:translate-y-[1px] active:shadow-sm;
+  @apply px-8 py-4 text-lg rounded-lg bg-[var(--color-accent)] text-[var(--color-text)] shadow-md hover:translate-y-[-3px] hover:shadow-lg active:translate-y-[1px] active:shadow-sm;
 }
 
+/* Redesigned Popup Styles */
 .details-popup-container {
-  @apply h-[40vh] w-[50%] p-3 m-3.5 bg-[var(--color-primary)] rounded-2xl flex justify-center items-center flex-col opacity-80;
+  @apply fixed inset-0 flex items-center justify-center bg-black/50;
+}
+
+.details-popup-content {
+  @apply w-[90%] max-w-lg bg-[var(--color-light-wood)] rounded-lg shadow-lg p-6 border-4 border-[var(--color-dark-wood)];
+  animation: slideIn 0.4s ease-out;
+  box-shadow: 0 4px 6px -1px var(--color-shadow),
+    0 2px 4px -1px var(--color-shadow);
+}
+
+.details-popup-header {
+  @apply flex justify-between items-center mb-4 relative border-b-2 border-[var(--color-dark-wood)] pb-2;
+}
+
+.details-popup-title {
+  @apply text-xl font-bold text-[var(--color-text)] flex-1 text-center;
+  font-family: var(--font-serif);
 }
 
 .details-popup-close-button {
-  @apply self-end text-xl text-[var(--color-light)] cursor-pointer;
+  @apply absolute right-0 top-0 text-[var(--color-text)] hover:text-[var(--color-accent)] cursor-pointer text-2xl font-bold transition-colors duration-200;
 }
 
 .details-popup-form {
-  @apply w-full flex flex-col items-center;
+  @apply flex flex-col gap-4;
+}
+
+.details-popup-input {
+  @apply w-full px-4 py-2 border-2 border-[var(--color-dark-wood)] rounded-md bg-[var(--color-highlight)] text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)];
 }
 
 .details-popup-submit-button {
-  @apply px-4 py-2 mt-4 rounded-lg bg-[var(--color-accent)] text-[var(--color-light)] hover:bg-[var(--color-accent)]/80;
+  @apply w-full py-2 bg-[var(--color-accent)] text-[var(--color-text)] font-semibold rounded-md hover:bg-[var(--color-dark-wood)] transition-colors duration-200 border-2 border-[var(--color-dark-wood)];
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .names-form-container,
 .game-time-container {
-  @apply w-full flex flex-col items-center mb-4;
+  @apply w-full flex flex-col items-center;
+}
+
+/* NamesForm styles */
+.names-form-container {
+  @apply flex flex-col gap-4 p-4 rounded-lg bg-[var(--color-highlight)] border-2 border-[var(--color-dark-wood)];
 }
 
 .names-form-label,
 .game-time-label {
-  @apply text-[var(--color-light)] mr-2;
+  @apply text-[var(--color-text)] text-lg font-semibold font-serif;
 }
 
-.names-form-input,
+.names-form-label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.names-form-input {
+  @apply w-full px-4 py-2 rounded-md bg-white text-[var(--color-text)] border-2 border-[var(--color-dark-wood)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-colors duration-200;
+}
+
+.names-form-input:focus,
+.game-time-select:focus,
+.game-time-input:focus {
+  @apply border-[var(--color-accent)] ring-2 ring-[var(--color-accent)];
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.game-time-container {
+  @apply w-full flex flex-col items-center gap-4 p-4 rounded-lg bg-[var(--color-highlight)] border-2 border-[var(--color-dark-wood)];
+}
+
+.game-time-label {
+  @apply text-[var(--color-text)] text-lg font-semibold font-serif;
+}
+
 .game-time-select,
 .game-time-input {
-  @apply px-3 py-2 rounded-md bg-[var(--color-tertiary)] text-[var(--color-secondary)] border border-[var(--color-dark)];
+  @apply w-full px-4 py-2 rounded-md bg-white text-[var(--color-text)] border-2 border-[var(--color-dark-wood)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-colors duration-200;
+}
+
+.game-time-select:focus,
+.game-time-input:focus {
+  @apply border-[var(--color-accent)] ring-2 ring-[var(--color-accent)];
 }
