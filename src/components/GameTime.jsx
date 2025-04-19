@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GameTime({ setTypeOfTime, custumTime }) {
+function GameTime({ setTypeOfTime, customTime }) {
   return (
     <div className="game-time-container">
       <label className="game-time-label" htmlFor="game-time">
@@ -12,10 +12,10 @@ function GameTime({ setTypeOfTime, custumTime }) {
         <option value="20m">20M</option>
         <option value="custom">custom</option>
       </select>
-      {custumTime && (
+      {customTime && (
         <div className="mt-2">
           <label className="game-time-label" htmlFor="custom-game-time">
-            Enter time :
+            Enter time:
           </label>
           <input className="game-time-input" type="number" id="custom-game-time" name="custom-game-time" required />
         </div>

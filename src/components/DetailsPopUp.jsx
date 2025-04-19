@@ -1,25 +1,25 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NamesForm from "./NamesForm";
-import GameTime from "./GameTIme";
+import GameTime from "./GameTime";
 
 const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
   const navigate = useNavigate();
-  const [custumTime, setCustumTime] = useState(false);
+  const [customTime, setCustomTime] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const player1 = e.target.player1.value;
     const player2 = e.target.player2.value;
-    const gameTime = custumTime ? e.target["custom-game-time"].value : e.target["game-time"].value;
+    const gameTime = customTime ? e.target["custom-game-time"].value : e.target["game-time"].value;
     navigate("Game", { state: { player1, player2, gameTime, clickedButton } });
   };
 
   const setTypeOfTime = (e) => {
     if (e.target.value === "custom") {
-      setCustumTime(true);
+      setCustomTime(true);
     } else {
-      setCustumTime(false);
+      setCustomTime(false);
     }
   };
 
@@ -34,7 +34,7 @@ const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
         </div>
         <form className="details-popup-form" onSubmit={handleSubmit}>
           <NamesForm />
-          <GameTime setTypeOfTime={setTypeOfTime} custumTime={custumTime} />
+          <GameTime setTypeOfTime={setTypeOfTime} customTime={customTime} />
           <button className="details-popup-submit-button" type="submit">
             Submit
           </button>

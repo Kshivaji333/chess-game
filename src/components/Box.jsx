@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Box({ color, pice }) {
+function Box({ color, piece }) {
   return (
     <div className={`box-container ${color === 'white' ? 'bg-white' : 'bg-black'}`}>
-      {pice}
+      {piece}
     </div>
   );
 }

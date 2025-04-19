@@ -1,11 +1,12 @@
 import { useLocation } from "react-router-dom";
-import Bord from "../components/Bord";
+import Board from "../components/Board";
 import '../styles/game.css'
+
 const Game = () => {
   const type = useLocation();
-  return(
+  return (
     <div>
-      <Bord></Bord>
+      <Board></Board>
     </div>
   )
 }
