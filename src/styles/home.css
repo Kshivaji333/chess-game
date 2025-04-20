@@ -6,7 +6,7 @@
   --color-dark-wood: #5a3825;
   --color-light-wood: #e0c097;
   --color-accent: #b08968;
-  --color-highlight: #f4e1d2;
+  --color-highlight: #e1e1e2 ;
   --color-text: #3e2723;
   --color-shadow: rgba(0, 0, 0, 0.3);
   --color-input-bg: #f4e1d2;
@@ -14,14 +14,15 @@
   --color-input-focus: #a67c52;
   --color-input-text: #3e2723;
 }
-
+/* #e0c097 -highlight*/
+/* #e1e1e2 */
 .home-page-container {
-  @apply min-h-screen flex flex-col items-center justify-center bg-[url('src/assets/background4.png')] bg-cover bg-no-repeat bg-center bg-fixed text-[var(--color-text)] font-serif relative;
+  @apply min-h-screen flex flex-col items-center justify-center bg-[url('src/assets/background2.png')] bg-cover bg-no-repeat bg-center bg-fixed text-[var(--color-text)] font-serif relative;
 }
 
 .home-page-container::before {
   content: "";
-  @apply absolute inset-0 bg-black/30 z-0;
+  @apply absolute inset-0 bg-black/70 z-0;
 }
 
 .button-container {
@@ -30,7 +31,11 @@
 
 .btn-play-computer,
 .btn-play-friend {
-  @apply w-64 px-8 py-6 text-xl rounded-xl bg-[var(--color-accent)] text-[var(--color-text)] shadow-lg hover:translate-y-[-3px] hover:shadow-xl active:translate-y-[1px] active:shadow-md transition-all duration-300 border-2 border-[var(--color-dark-wood)] font-bold;
+  @apply w-64 px-8 py-6 text-xl rounded-xl bg-[var(--color-accent)] 
+       text-[var(--color-text)] shadow-lg hover:translate-y-[-3px] 
+       hover:shadow-xl active:translate-y-[1px] active:shadow-md 
+       transition-all duration-300 border-2 
+       border-[var(--color-dark-wood)] font-bold;
 }
 
 /* Redesigned Popup Styles */
@@ -39,14 +44,16 @@
 }
 
 .details-popup-content {
-  @apply w-[90%] max-w-lg bg-[var(--color-light-wood)] rounded-lg shadow-lg p-6 border-4 border-[var(--color-dark-wood)] z-50;
+  @apply w-[90%] max-w-lg bg-[var(--color-light-wood)] rounded-lg 
+  shadow-lg p-6 border-4 border-[var(--color-dark-wood)] z-50;
   animation: slideIn 0.4s ease-out;
   box-shadow: 0 4px 6px -1px var(--color-shadow),
     0 2px 4px -1px var(--color-shadow);
 }
 
 .details-popup-header {
-  @apply flex justify-between items-center mb-4 relative border-b-2 border-[var(--color-dark-wood)] pb-2;
+  @apply flex justify-between items-center mb-4 relative border-b-2 
+  border-[var(--color-dark-wood)] pb-2;
 }
 
 .details-popup-title {

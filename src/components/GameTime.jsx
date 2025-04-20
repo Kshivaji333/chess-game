@@ -10,6 +10,7 @@ function GameTime({ setTypeOfTime, customTime }) {
         <option value="5m">5M</option>
         <option value="10m">10M</option>
         <option value="20m">20M</option>
+        <option value="noTime">noTime</option>
         <option value="custom">custom</option>
       </select>
       {customTime && (
