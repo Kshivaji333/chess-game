@@ -12,7 +12,8 @@ const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
     const player1 = e.target.player1.value;
     const player2 = e.target.player2.value;
     const gameTime = customTime ? e.target["custom-game-time"].value : e.target["game-time"].value;
-    navigate("Game", { state: { player1, player2, gameTime, clickedButton } });
+    const player1Color = e.target["player1-color"].value;
+    navigate("Game", { state: { player1, player2, gameTime, clickedButton, player1Color } });
   };
 
   const setTypeOfTime = (e) => {
