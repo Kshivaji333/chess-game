@@ -2,10 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NamesForm from "./NamesForm";
 import GameTime from "./GameTime";
+import GameUndo from "./GameUndo";
+import '../styles/DetailsPopUp.css';
 
 const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
   const navigate = useNavigate();
   const [customTime, setCustomTime] = useState(false);
+  const [customUndo, setCustomUndo] = useState(false);
+  const [player1Color, setPlayer1Color] = useState("white");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,6 +28,14 @@ const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
     }
   };
 
+  const setTypeOfUndo = (e) => {
+    if (e.target.value === "custom") {
+      setCustomUndo(true);
+    } else {
+      setCustomUndo(false);
+    }
+  };
+
   return (
     <div className="details-popup-container">
       <div className="details-popup-content">
@@ -35,9 +47,31 @@ const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
         </div>
         <form className="details-popup-form" onSubmit={handleSubmit}>
           <NamesForm />
+
+          <div className="player-color-container">
+            <label className="player-color-label" htmlFor="player1-color">Player 1 Color:</label>
+            <select
+              className="player-color-select"
+              id="player1-color"
+              name="player1-color"
+              onChange={(e) => setPlayer1Color(e.target.value)}
+            >
+              <option value="white">White</option>
+              <option value="black">Black</option>
+            </select>
+            <div className="mt-2">
+              <span className="player-color-label">Player 2 Color:</span>
+              <span className="player-color-display">
+                {player1Color === "black" ? "White" : "Black"}
+              </span>
+            </div>
+          </div>
+
           <GameTime setTypeOfTime={setTypeOfTime} customTime={customTime} />
+          <GameUndo setTypeOfUndo={setTypeOfUndo} customUndo={customUndo} />
+
           <button className="details-popup-submit-button" type="submit">
-            Submit
+            Start Game
           </button>
         </form>
       </div>
