@@ -4,21 +4,33 @@ function GameTime({ setTypeOfTime, customTime }) {
   return (
     <div className="game-time-container">
       <label className="game-time-label" htmlFor="game-time">
-        Select game time:
+        Game Time:
       </label>
-      <select className="game-time-select" id="game-time" name="game-time" onChange={setTypeOfTime}>
-        <option value="5m">5M</option>
-        <option value="10m">10M</option>
-        <option value="20m">20M</option>
-        <option value="noTime">noTime</option>
-        <option value="custom">custom</option>
+      <select
+        className="game-time-select"
+        id="game-time"
+        name="game-time"
+        onChange={setTypeOfTime}
+      >
+        <option value="5m">5 Minutes</option>
+        <option value="10m">10 Minutes</option>
+        <option value="20m">20 Minutes</option>
+        <option value="noTime">No Time Limit</option>
+        <option value="custom">Custom Time</option>
       </select>
       {customTime && (
         <div className="mt-2">
           <label className="game-time-label" htmlFor="custom-game-time">
-            Enter time:
+            Enter time in minutes:
           </label>
-          <input className="game-time-input" type="number" id="custom-game-time" name="custom-game-time" required />
+          <input
+            className="game-time-custom-input"
+            type="number"
+            id="custom-game-time"
+            name="custom-game-time"
+            required
+            min="1"
+          />
         </div>
       )}
     </div>

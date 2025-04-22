@@ -31,7 +31,7 @@
 
 .btn-play-computer,
 .btn-play-friend {
-  @apply w-64 px-8 py-6 text-xl rounded-xl bg-[var(--color-accent)] 
+  @apply w-64 px-4 py-6 text-xl rounded-xl bg-[var(--color-accent)] 
        text-[var(--color-text)] shadow-lg hover:translate-y-[-3px] 
        hover:shadow-xl active:translate-y-[1px] active:shadow-md 
        transition-all duration-300 border-2 

@@ -1,22 +1,34 @@
 import React from 'react'
 
-const GameUndo = ({setTypeOfUndo, customUndo }) => {
+const GameUndo = ({ setTypeOfUndo, customUndo }) => {
   return (
-    <div>
-      <label htmlFor="game-time">
-        Select game time:
+    <div className="game-undo-container">
+      <label className="game-undo-label" htmlFor="game-undo">
+        Undo Moves:
       </label>
-      <select id="game-time" name="game-time" onChange={setTypeOfUndo}>
-        <option value="5">5</option>
-        <option value="noUndo">noUndo</option>
-        <option value="custom">custom</option>
+      <select
+        className="game-undo-select"
+        id="game-undo"
+        name="game-undo"
+        onChange={setTypeOfUndo}
+      >
+        <option value="5">5 moves</option>
+        <option value="noUndo">No Undo</option>
+        <option value="custom">Custom</option>
       </select>
       {customUndo && (
         <div className="mt-2">
-          <label htmlFor="custom-game-undo">
-            Enter how many moves you want to undo:
+          <label className="game-undo-label" htmlFor="custom-game-undo">
+            Enter number of moves to undo:
           </label>
-          <input type="number" id="custom-game-undo" name="custom-game-undo" required />
+          <input
+            className="game-undo-custom-input"
+            type="number"
+            id="custom-game-undo"
+            name="custom-game-undo"
+            required
+            min="1"
+          />
         </div>
       )}
     </div>

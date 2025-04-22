@@ -16,8 +16,9 @@ const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
     const player1 = e.target.player1.value;
     const player2 = e.target.player2.value;
     const gameTime = customTime ? e.target["custom-game-time"].value : e.target["game-time"].value;
+    const GameUndo = customUndo ? e.target["game-undo-custom-input"].value : e.target["game-undo"].value;
     const player1Color = e.target["player1-color"].value;
-    navigate("Game", { state: { player1, player2, gameTime, clickedButton, player1Color } });
+    navigate("Game", { state: { player1, player2, gameTime, clickedButton, player1Color, GameUndo } });
   };
 
   const setTypeOfTime = (e) => {
@@ -46,33 +47,38 @@ const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
           </button>
         </div>
         <form className="details-popup-form" onSubmit={handleSubmit}>
-          <NamesForm />
-
-          <div className="player-color-container">
-            <label className="player-color-label" htmlFor="player1-color">Player 1 Color:</label>
-            <select
-              className="player-color-select"
-              id="player1-color"
-              name="player1-color"
-              onChange={(e) => setPlayer1Color(e.target.value)}
-            >
-              <option value="white">White</option>
-              <option value="black">Black</option>
-            </select>
-            <div className="mt-2">
-              <span className="player-color-label">Player 2 Color:</span>
-              <span className="player-color-display">
-                {player1Color === "black" ? "White" : "Black"}
-              </span>
+          <div className="details-popup-left-section">
+            <NamesForm />
+            <div className="player-color-container">
+              <label className="player-color-label" htmlFor="player1-color">Player 1 Color:</label>
+              <select
+                className="player-color-select"
+                id="player1-color"
+                name="player1-color"
+                onChange={(e) => setPlayer1Color(e.target.value)}
+              >
+                <option value="white">White</option>
+                <option value="black">Black</option>
+              </select>
+              <div className="mt-2">
+                <span className="player-color-label">Player 2 Color:</span>
+                <span className="player-color-display">
+                  {player1Color === "black" ? "White" : "Black"}
+                </span>
+              </div>
             </div>
           </div>
 
-          <GameTime setTypeOfTime={setTypeOfTime} customTime={customTime} />
-          <GameUndo setTypeOfUndo={setTypeOfUndo} customUndo={customUndo} />
+          <div className="details-popup-right-section">
+            <GameTime setTypeOfTime={setTypeOfTime} customTime={customTime} />
+            <GameUndo setTypeOfUndo={setTypeOfUndo} customUndo={customUndo} />
+          </div>
 
-          <button className="details-popup-submit-button" type="submit">
-            Start Game
-          </button>
+          <div className="col-span-2 mt-4">
+            <button className="details-popup-submit-button" type="submit">
+              Start Game
+            </button>
+          </div>
         </form>
       </div>
     </div>

@@ -1,42 +1,47 @@
 @import "tailwindcss";
 
 .details-popup-container {
-  @apply fixed inset-0 flex items-center justify-center bg-black/60 z-50 backdrop-blur-sm;
+  @apply fixed inset-0 flex items-center justify-center bg-black/60 z-50 backdrop-blur-sm overflow-y-auto;
 }
 
 .details-popup-content {
-  @apply w-[90%] max-w-lg bg-[var(--color-light-wood)] rounded-xl 
-  shadow-2xl p-8 border-4 border-[var(--color-dark-wood)] z-50;
+  @apply w-[90%] max-w-2xl bg-[var(--color-light-wood)] rounded-lg 
+  shadow-2xl p-4 border-2 border-[var(--color-dark-wood)] z-50 my-4;
   animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 8px 16px -4px var(--color-shadow),
     0 4px 8px -4px var(--color-shadow);
 }
 
 .details-popup-header {
-  @apply flex justify-between items-center mb-6 relative border-b-2 
-  border-[var(--color-dark-wood)] pb-4;
+  @apply flex justify-between items-center mb-3 relative border-b-2 
+  border-[var(--color-dark-wood)] pb-2;
 }
 
 .details-popup-title {
-  @apply text-2xl font-bold text-[var(--color-text)] flex-1 text-center;
+  @apply text-lg font-bold text-[var(--color-text)] flex-1 text-center;
   font-family: var(--font-serif);
   text-shadow: 1px 1px 2px var(--color-shadow);
 }
 
 .details-popup-close-button {
   @apply absolute right-0 top-0 text-[var(--color-text)] hover:text-[var(--color-accent)] 
-  cursor-pointer text-3xl font-bold transition-all duration-200 hover:scale-110;
+  cursor-pointer text-xl font-bold transition-all duration-200 hover:scale-110;
 }
 
 .details-popup-form {
-  @apply flex flex-col gap-6;
+  @apply grid grid-cols-2 gap-4;
+}
+
+.details-popup-left-section,
+.details-popup-right-section {
+  @apply flex flex-col gap-3;
 }
 
 .details-popup-submit-button {
-  @apply w-full py-3 bg-[var(--color-accent)] text-[var(--color-text)] 
-  font-semibold rounded-lg hover:bg-[var(--color-dark-wood)] 
+  @apply w-full py-2 bg-[var(--color-accent)] text-[var(--color-text)] 
+  font-semibold rounded-md hover:bg-[var(--color-dark-wood)] 
   transition-all duration-300 border-2 border-[var(--color-dark-wood)]
-  hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg;
+  hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg text-sm;
 }
 
 @keyframes popIn {
@@ -52,21 +57,65 @@
 
 /* Player color selection styles */
 .player-color-container {
-  @apply flex flex-col gap-4 p-4 rounded-lg bg-[var(--color-highlight)] 
+  @apply flex flex-col gap-2 p-2 rounded-md bg-[var(--color-highlight)] 
   border-2 border-[var(--color-dark-wood)];
 }
 
 .player-color-label {
-  @apply text-[var(--color-text)] text-lg font-semibold font-serif;
+  @apply text-[var(--color-text)] text-sm font-semibold font-serif;
 }
 
 .player-color-select {
-  @apply w-full px-4 py-2 rounded-lg bg-white text-[var(--color-text)] 
+  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
   border-2 border-[var(--color-dark-wood)] focus:outline-none 
-  focus:ring-2 focus:ring-[var(--color-accent)] transition-colors duration-200;
+  focus:ring-2 focus:ring-[var(--color-accent)] transition-colors duration-200 text-sm;
 }
 
 .player-color-display {
-  @apply inline-block ml-2 px-4 py-2 rounded-lg border-2 border-[var(--color-dark-wood)]
-  font-semibold bg-white text-[var(--color-text)];
+  @apply inline-block ml-2 px-2 py-1 rounded-md border-2 border-[var(--color-dark-wood)]
+  font-semibold bg-white text-[var(--color-text)] text-sm;
+}
+
+/* Game Undo styles */
+.game-undo-container {
+  @apply flex flex-col gap-2 p-2 rounded-md bg-[var(--color-highlight)] 
+  border-2 border-[var(--color-dark-wood)];
+}
+
+.game-undo-label {
+  @apply text-[var(--color-text)] text-sm font-semibold font-serif;
+}
+
+.game-undo-select {
+  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
+  border-2 border-[var(--color-dark-wood)] focus:outline-none 
+  focus:ring-2 focus:ring-[var(--color-accent)] transition-colors duration-200 text-sm;
+}
+
+.game-undo-custom-input {
+  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
+  border-2 border-[var(--color-dark-wood)] focus:outline-none 
+  focus:ring-2 focus:ring-[var(--color-accent)] transition-colors duration-200 text-sm;
+}
+
+/* Game Time styles */
+.game-time-container {
+  @apply flex flex-col gap-2 p-2 rounded-md bg-[var(--color-highlight)] 
+  border-2 border-[var(--color-dark-wood)];
+}
+
+.game-time-label {
+  @apply text-[var(--color-text)] text-sm font-semibold font-serif;
+}
+
+.game-time-select {
+  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
+  border-2 border-[var(--color-dark-wood)] focus:outline-none 
+  focus:ring-2 focus:ring-[var(--color-accent)] transition-colors duration-200 text-sm;
+}
+
+.game-time-custom-input {
+  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
+  border-2 border-[var(--color-dark-wood)] focus:outline-none 
+  focus:ring-2 focus:ring-[var(--color-accent)] transition-colors duration-200 text-sm;
 }
