@@ -121,7 +121,8 @@
 .player-color-select:focus,
 .game-undo-select:focus,
 .game-undo-input:focus,
-.game-undo-custom-input:focus {
+.game-undo-custom-input:focus,
+.game-time-custom-input:focus {
   @apply outline-none ring-2 ring-[var(--color-accent)] border-[var(--color-accent)] transition-colors duration-200;
 }
 
