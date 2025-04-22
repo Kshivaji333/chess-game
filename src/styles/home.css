@@ -40,114 +40,157 @@
 
 /* Redesigned Popup Styles */
 .details-popup-container {
-  @apply fixed inset-0 flex items-center justify-center bg-black/50 z-50;
+  @apply fixed inset-0 flex items-center justify-center z-50 ;
 }
 
 .details-popup-content {
-  @apply w-[90%] max-w-lg bg-[var(--color-light-wood)] rounded-lg 
-  shadow-lg p-6 border-4 border-[var(--color-dark-wood)] z-50;
-  animation: slideIn 0.4s ease-out;
-  box-shadow: 0 4px 6px -1px var(--color-shadow),
-    0 2px 4px -1px var(--color-shadow);
+  @apply w-[90%] max-w-2xl bg-[var(--color-light-wood)] rounded-lg 
+  shadow-2xl p-4 border-2 border-[var(--color-dark-wood)] ;
+  animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 16px -4px var(--color-shadow),
+    0 4px 8px -4px var(--color-shadow);
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .details-popup-header {
-  @apply flex justify-between items-center mb-4 relative border-b-2 
+  @apply flex justify-between items-center mb-3 relative border-b-2 
   border-[var(--color-dark-wood)] pb-2;
 }
 
 .details-popup-title {
-  @apply text-xl font-bold text-[var(--color-text)] flex-1 text-center;
+  @apply text-lg font-bold text-[var(--color-text)] flex-1 text-center;
   font-family: var(--font-serif);
+  text-shadow: 1px 1px 2px var(--color-shadow);
 }
 
 .details-popup-close-button {
-  @apply absolute right-0 top-0 text-[var(--color-text)] hover:text-[var(--color-accent)] cursor-pointer text-2xl font-bold transition-colors duration-200;
+  @apply absolute right-0 top-0 text-[var(--color-text)] hover:text-[var(--color-accent)] 
+  cursor-pointer text-xl font-bold transition-all duration-200 hover:scale-110;
 }
 
 .details-popup-form {
-  @apply flex flex-col gap-4;
+  @apply grid grid-cols-2 gap-3;
 }
 
-.details-popup-input {
-  @apply w-full px-4 py-2 border-2 border-[var(--color-dark-wood)] rounded-md bg-[var(--color-highlight)] text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)];
+.details-popup-left-section,
+.details-popup-right-section {
+  @apply flex flex-col gap-3;
 }
 
 .details-popup-submit-button {
   @apply w-full py-2 bg-[var(--color-accent)] text-[var(--color-text)] font-semibold rounded-md hover:bg-[var(--color-dark-wood)] transition-colors duration-200 border-2 border-[var(--color-dark-wood)];
 }
 
-@keyframes slideIn {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 
-.names-form-container,
-.game-time-container {
-  @apply w-full flex flex-col items-center;
+.names-form-container {
+  @apply w-full flex flex-col ;
 }
 
 /* NamesForm styles */
 .names-form-container {
-  @apply flex flex-col gap-4 p-4 rounded-lg bg-[var(--color-highlight)] border-2 border-[var(--color-dark-wood)];
+  @apply gap-4 p-4 rounded-lg bg-[var(--color-highlight)] border-2 border-[var(--color-dark-wood)];
 }
 
-.names-form-label,
-.game-time-label {
+.names-form-label, {
   @apply text-[var(--color-text)] text-lg font-semibold font-serif;
 }
 
-.names-form-label {
+.names-form-label{
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
 .names-form-input {
-  @apply w-full px-4 py-2 rounded-md bg-white text-[var(--color-text)] border-2 border-[var(--color-dark-wood)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-colors duration-200;
+  @apply w-full px-2 py-2 rounded-md bg-white text-[var(--color-text)] border-2 border-[var(--color-dark-wood)]  transition-colors duration-200;
 }
 
 .names-form-input:focus,
 .game-time-select:focus,
-.game-time-input:focus {
-  @apply border-[var(--color-accent)] ring-2 ring-[var(--color-accent)];
+.game-time-input:focus,
+.player-color-select:focus,
+.game-undo-select:focus,
+.game-undo-input:focus,
+.game-undo-custom-input:focus {
+  @apply outline-none ring-2 ring-[var(--color-accent)] border-[var(--color-accent)] transition-colors duration-200;
 }
 
 .mb-2 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+
+.game-time-input {
+  @apply w-full px-4 py-2 rounded-md bg-white text-[var(--color-text)] border-2 border-[var(--color-dark-wood)] transition-colors duration-200;
+}
+
+/* color container */
+
+.player-color-container {
+  @apply flex flex-col gap-2 p-2 rounded-md bg-[var(--color-highlight)] 
+  border-2 border-[var(--color-dark-wood)];
+}
+
+.player-color-label {
+  @apply text-[var(--color-text)] text-sm font-semibold font-serif;
+}
+
+.player-color-select {
+  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
+  border-2 border-[var(--color-dark-wood)]  transition-colors duration-200 text-sm;
+}
+
+.player-color-display {
+  @apply inline-block ml-2 px-2 py-1 rounded-md border-2 border-[var(--color-dark-wood)]
+  font-semibold bg-white text-[var(--color-text)] text-sm;
+}
+
+.game-undo-container {
+  @apply flex flex-col gap-2 p-2 rounded-md bg-[var(--color-highlight)] 
+  border-2 border-[var(--color-dark-wood)];
+}
+
+.game-undo-label {
+  @apply text-[var(--color-text)] text-sm font-semibold font-serif;
+}
+
+.game-undo-select {
+  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
+  border-2 border-[var(--color-dark-wood)]  
+   transition-colors duration-200 text-sm;
+}
+
+.game-undo-custom-input {
+  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
+  border-2 border-[var(--color-dark-wood)] 
+  transition-colors duration-200 text-sm;
 }
 
 .game-time-container {
-  @apply w-full flex flex-col items-center gap-4 p-4 rounded-lg bg-[var(--color-highlight)] border-2 border-[var(--color-dark-wood)];
+  @apply flex flex-col gap-2 p-2 rounded-md bg-[var(--color-highlight)] 
+  border-2 border-[var(--color-dark-wood)];
 }
 
 .game-time-label {
-  @apply text-[var(--color-text)] text-lg font-semibold font-serif;
+  @apply text-[var(--color-text)] text-sm font-semibold font-serif;
 }
 
-.game-time-select,
-.game-time-input {
-  @apply w-full px-4 py-2 rounded-md bg-white text-[var(--color-text)] border-2 border-[var(--color-dark-wood)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-colors duration-200;
+.game-time-select {
+  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
+  border-2 border-[var(--color-dark-wood)] transition-colors duration-200 text-sm;
 }
 
-.game-time-select:focus,
-.game-time-input:focus {
-  @apply border-[var(--color-accent)] ring-2 ring-[var(--color-accent)];
+.game-time-custom-input {
+  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
+  border-2 border-[var(--color-dark-wood)] transition-colors duration-200 text-sm;
 }
