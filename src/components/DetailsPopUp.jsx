@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import NamesForm from "./NamesForm";
 import GameTime from "./GameTime";
 import GameUndo from "./GameUndo";
-import '../styles/DetailsPopUp.css';
+
 
 const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
         <form className="details-popup-form" onSubmit={handleSubmit}>
           <div className="details-popup-left-section">
             <NamesForm />
-            <div className="player-color-container">
+            <div className="colors-form-container">
               <label className="player-color-label" htmlFor="player1-color">Player 1 Color:</label>
               <select
                 className="player-color-select"
@@ -74,7 +74,7 @@ const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
             <GameUndo setTypeOfUndo={setTypeOfUndo} customUndo={customUndo} />
           </div>
 
-          <div className="col-span-2 mt-4">
+          <div className="col-span-2">
             <button className="details-popup-submit-button" type="submit">
               Start Game
             </button>

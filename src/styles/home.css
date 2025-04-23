@@ -6,7 +6,7 @@
   --color-dark-wood: #5a3825;
   --color-light-wood: #e0c097;
   --color-accent: #b08968;
-  --color-highlight: #e1e1e2 ;
+  --color-highlight: #e1e1e2;
   --color-text: #3e2723;
   --color-shadow: rgba(0, 0, 0, 0.3);
   --color-input-bg: #f4e1d2;
@@ -14,8 +14,7 @@
   --color-input-focus: #a67c52;
   --color-input-text: #3e2723;
 }
-/* #e0c097 -highlight*/
-/* #e1e1e2 */
+
 .home-page-container {
   @apply min-h-screen flex flex-col items-center justify-center bg-[url('src/assets/background2.png')] bg-cover bg-no-repeat bg-center bg-fixed text-[var(--color-text)] font-serif relative;
 }
@@ -38,14 +37,13 @@
        border-[var(--color-dark-wood)] font-bold;
 }
 
-/* Redesigned Popup Styles */
 .details-popup-container {
-  @apply fixed inset-0 flex items-center justify-center z-50 ;
+  @apply fixed inset-0 flex items-center justify-center z-50;
 }
 
 .details-popup-content {
   @apply w-[90%] max-w-2xl bg-[var(--color-light-wood)] rounded-lg 
-  shadow-2xl p-4 border-2 border-[var(--color-dark-wood)] ;
+  shadow-2xl p-4 border-2 border-[var(--color-dark-wood)];
   animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 8px 16px -4px var(--color-shadow),
     0 4px 8px -4px var(--color-shadow);
@@ -84,35 +82,19 @@
 
 .details-popup-left-section,
 .details-popup-right-section {
-  @apply flex flex-col gap-3;
+  @apply flex flex-col gap-2;
 }
 
 .details-popup-submit-button {
   @apply w-full py-2 bg-[var(--color-accent)] text-[var(--color-text)] font-semibold rounded-md hover:bg-[var(--color-dark-wood)] transition-colors duration-200 border-2 border-[var(--color-dark-wood)];
 }
 
-
-.names-form-container {
-  @apply w-full flex flex-col ;
-}
-
-/* NamesForm styles */
-.names-form-container {
-  @apply gap-4 p-4 rounded-lg bg-[var(--color-highlight)] border-2 border-[var(--color-dark-wood)];
-}
-
-.names-form-label, {
-  @apply text-[var(--color-text)] text-lg font-semibold font-serif;
-}
-
-.names-form-label{
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.names-form-input {
-  @apply w-full px-2 py-2 rounded-md bg-white text-[var(--color-text)] border-2 border-[var(--color-dark-wood)]  transition-colors duration-200;
+.names-form-container,
+.colors-form-container,
+.game-time-container,
+.game-undo-container {
+  @apply flex flex-col gap-2 p-2 rounded-md bg-[var(--color-highlight)] 
+  border-2 border-[var(--color-dark-wood)];
 }
 
 .names-form-input:focus,
@@ -126,27 +108,12 @@
   @apply outline-none ring-2 ring-[var(--color-accent)] border-[var(--color-accent)] transition-colors duration-200;
 }
 
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
-
-.game-time-input {
-  @apply w-full px-4 py-2 rounded-md bg-white text-[var(--color-text)] border-2 border-[var(--color-dark-wood)] transition-colors duration-200;
-}
-
-/* color container */
-
-.player-color-container {
-  @apply flex flex-col gap-2 p-2 rounded-md bg-[var(--color-highlight)] 
-  border-2 border-[var(--color-dark-wood)];
-}
-
-.player-color-label {
-  @apply text-[var(--color-text)] text-sm font-semibold font-serif;
-}
-
-.player-color-select {
+.player-color-select,
+.game-undo-select,
+.game-time-select,
+.game-undo-custom-input,
+.game-time-custom-input,
+.names-form-input {
   @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
   border-2 border-[var(--color-dark-wood)]  transition-colors duration-200 text-sm;
 }
@@ -156,42 +123,9 @@
   font-semibold bg-white text-[var(--color-text)] text-sm;
 }
 
-.game-undo-container {
-  @apply flex flex-col gap-2 p-2 rounded-md bg-[var(--color-highlight)] 
-  border-2 border-[var(--color-dark-wood)];
-}
-
-.game-undo-label {
+.game-time-label,
+.game-undo-label,
+.player-color-label,
+.names-form-label {
   @apply text-[var(--color-text)] text-sm font-semibold font-serif;
-}
-
-.game-undo-select {
-  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
-  border-2 border-[var(--color-dark-wood)]  
-   transition-colors duration-200 text-sm;
-}
-
-.game-undo-custom-input {
-  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
-  border-2 border-[var(--color-dark-wood)] 
-  transition-colors duration-200 text-sm;
-}
-
-.game-time-container {
-  @apply flex flex-col gap-2 p-2 rounded-md bg-[var(--color-highlight)] 
-  border-2 border-[var(--color-dark-wood)];
-}
-
-.game-time-label {
-  @apply text-[var(--color-text)] text-sm font-semibold font-serif;
-}
-
-.game-time-select {
-  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
-  border-2 border-[var(--color-dark-wood)] transition-colors duration-200 text-sm;
-}
-
-.game-time-custom-input {
-  @apply w-full px-2 py-1 rounded-md bg-white text-[var(--color-text)] 
-  border-2 border-[var(--color-dark-wood)] transition-colors duration-200 text-sm;
 }

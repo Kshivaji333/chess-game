@@ -19,7 +19,7 @@ function GameTime({ setTypeOfTime, customTime }) {
         <option value="custom">Custom Time</option>
       </select>
       {customTime && (
-        <div className="mt-2">
+        <div>
           <label className="game-time-label" htmlFor="custom-game-time">
             Enter time in minutes:
           </label>

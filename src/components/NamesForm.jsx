@@ -5,7 +5,7 @@ function NamesForm() {
 
   return (
     <div className="names-form-container">
-      <div className="mb-2">
+      <div>
         <label className="names-form-label" htmlFor="player1">
           player1 name:
         </label>

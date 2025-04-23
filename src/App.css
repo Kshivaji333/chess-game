@@ -1,18 +1,5 @@
-@import "tailwindcss";
-
-@layer base {
-  @theme {
-    --font-serif: 'Georgia', 'Times New Roman', 'serif';
-    --font-sans: 'Arial', 'Helvetica', 'sans-serif'; 
-    --font-mono: 'Courier New', 'Consolas', 'monospace';
-    --color-first: #8B5E3C;
-    --color-second: #6F4F29;
-    --color-third: #D2B29A;
-  }
-}
-
-*{
+* {
   margin: 0px;
   padding: 0px;
-  box-sizing:;
+  box-sizing: content;
 }
