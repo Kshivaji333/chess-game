@@ -4,7 +4,6 @@ import NamesForm from "./NamesForm";
 import GameTime from "./GameTime";
 import GameUndo from "./GameUndo";
 
-
 const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
   const navigate = useNavigate();
   const [customTime, setCustomTime] = useState(false);
@@ -60,7 +59,7 @@ const DetailsPopUp = ({ clickedButton, setDetailsPopUp }) => {
                 <option value="white">White</option>
                 <option value="black">Black</option>
               </select>
-              <div className="mt-2">
+              <div>
                 <span className="player-color-label">Player 2 Color:</span>
                 <span className="player-color-display">
                   {player1Color === "black" ? "White" : "Black"}
